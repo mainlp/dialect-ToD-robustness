@@ -109,10 +109,13 @@ def perturb_genitive_to_dativ(tokens: List[str], tags: List[str]) -> Tuple[List[
         return tokens, tags, replaced        
     
     for genitive_group in genitive_groups:
-        dativ_group = genitive_group_to_dativ_group(genitive_group)
-        perturbed_sentence = sentence.replace(genitive_group, dativ_group)
-        perturbed_tokens = perturbed_sentence.split()
-        replaced = True 
+        try:
+            dativ_group = genitive_group_to_dativ_group(genitive_group)
+            perturbed_sentence = sentence.replace(genitive_group, dativ_group)
+            perturbed_tokens = perturbed_sentence.split()
+            replaced = True 
+        except:
+            pass
         
     for i, token in enumerate(perturbed_tokens):
         if token in ['von','vom']:
@@ -286,6 +289,7 @@ def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], Li
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
     replaced = False
+    cur_tag = ""
 
     per_spans = []
     current_span = None
@@ -321,7 +325,7 @@ def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], Li
 def check_is_question(tokens: List[str]) -> bool:
     if tokens[-1] == '?':
         return True
-    if tokens[0] in question_words or token[0] in auxiliary_verbs:
+    if tokens[0] in question_words or tokens[0] in auxiliary_verbs:
         return True
     return False
 
