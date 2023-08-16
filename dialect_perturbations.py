@@ -113,9 +113,12 @@ def perturb_genitive_to_dativ(tokens: List[str], tags: List[str]) -> Tuple[List[
             dativ_group = genitive_group_to_dativ_group(genitive_group)
             perturbed_sentence = sentence.replace(genitive_group, dativ_group)
             perturbed_tokens = perturbed_sentence.split()
-            replaced = True 
         except:
             pass
+        
+    replaced = tokens != perturbed_tokens
+            
+
         
     for i, token in enumerate(perturbed_tokens):
         if token in ['von','vom']:
@@ -311,10 +314,16 @@ def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], Li
         per_spans.append(current_span)
 
     extracted_spans = []
+    
     for span in per_spans:
         start, end = span['start'], span['end']
-        perturbed_tokens[start:end] = [tokens[end-1]] + tokens[start:end-1]
-        replaced = True
+        try:
+            perturbed_tokens[start:end] = [tokens[end-1]] + tokens[start:end-1]
+            perturbed_tags = [tags[end-1]] + tags[start:end-1]
+        except:
+            pass
+    
+    replaced = tokens != perturbed_tokens
         
     return perturbed_tokens, perturbed_tags, replaced
 
@@ -654,39 +663,9 @@ def perturb_existential_clause(tokens: List[str], tags: List[str]) -> Tuple[List
     return perturbed_tokens, perturbed_tags, replaced
 
 
-###################### OTHER ######################
 
 
-###################### Contracted verb and pronoun ######################
-
-def perturb_contracted_verb_and_pronoun(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
-    perturbed_tokens = tokens.copy()
-    perturbed_tags = tags.copy()
-    sentence = ' '.join(tokens)
-    
-    replaced = False
-
-    parse = nlp(sentence)
-    
-    matcher = Matcher(nlp.vocab)
-    pattern1 = [{"POS": "AUX"}, {"LOWER":"es"}]
-    pattern2 = [{"POS": "VERB"}, {"LOWER":"es"}]
-    matcher.add("EsVerb", [pattern1, pattern2])
-    matches = matcher(parse)
-    if len(matches) == 0:
-        return tokens,  tags, replaced
-    for match in matches:
-        r = random.randint(0, 10)
-        start, end = match[1], match[2]
-        if r % 2 == 0:
-            perturbed_tokens[match[1]] = perturbed_tokens[match[1]]+"s"
-        else:
-            perturbed_tokens[match[1]] = perturbed_tokens[match[1]]+"'s"
-        perturbed_tokens.pop(match[1]+1)
-        perturbed_tags.pop(match[1]+1)
-        replaced = True
-        
-    return perturbed_tokens, perturbed_tags, replaced
+###################### VERB MOPHOLOGY ######################
 
 ###################### Schwa elision at the end of 1.sg.pres verbs ######################
 
@@ -734,12 +713,15 @@ def perturb_tun_imperativ(tokens: List[str], tags: List[str]) -> Tuple[List[str]
 
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
-       
-    for ch in parse[0].children:
-        if ch.pos_ == 'ADP':
-            verb = ch.text + verb
-            perturbed_tokens.pop(ch.i)
-            perturbed_tags.pop(ch.i)
+    
+    try:
+        for ch in parse[0].children:
+            if ch.pos_ == 'ADP':
+                verb = ch.text + verb
+                perturbed_tokens.pop(ch.i)
+                perturbed_tags.pop(ch.i)
+    except:
+        pass
     
 
 
@@ -766,4 +748,38 @@ def perturb_tun_imperativ(tokens: List[str], tags: List[str]) -> Tuple[List[str]
     perturbed_tags = perturbed_tags + ['O']
 
     
+    return perturbed_tokens, perturbed_tags, replaced
+
+###################### PRONOUNS ######################
+
+
+###################### Contracted verb and pronoun ######################
+
+def perturb_contracted_verb_and_pronoun(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
+    perturbed_tokens = tokens.copy()
+    perturbed_tags = tags.copy()
+    sentence = ' '.join(tokens)
+    
+    replaced = False
+
+    parse = nlp(sentence)
+    
+    matcher = Matcher(nlp.vocab)
+    pattern1 = [{"POS": "AUX"}, {"LOWER":"es"}]
+    pattern2 = [{"POS": "VERB"}, {"LOWER":"es"}]
+    matcher.add("EsVerb", [pattern1, pattern2])
+    matches = matcher(parse)
+    if len(matches) == 0:
+        return tokens,  tags, replaced
+    for match in matches:
+        r = random.randint(0, 10)
+        start, end = match[1], match[2]
+        if r % 2 == 0:
+            perturbed_tokens[match[1]] = perturbed_tokens[match[1]]+"s"
+        else:
+            perturbed_tokens[match[1]] = perturbed_tokens[match[1]]+"'s"
+        perturbed_tokens.pop(match[1]+1)
+        perturbed_tags.pop(match[1]+1)
+        replaced = True
+        
     return perturbed_tokens, perturbed_tags, replaced
