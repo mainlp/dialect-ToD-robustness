@@ -33,11 +33,23 @@ derbi = DERBI(nlp)
 
 prepositions_with_genitive = [line.strip() for line in open(f'{resources_path}/prepositions_with_genitive.txt').readlines()]
 articles_dict = json.load(open(f'{resources_path}/definite_article.json'))
+prepositions_dict = json.load(open(f'{resources_path}/prepositions.json'))
 person_tags = ['B-'+line.strip() for line in open(f'{resources_path}/person_tags.txt').readlines()]
 question_words = [line.strip() for line in open(f'{resources_path}/question_words.txt').readlines()]
 auxiliary_verbs = [line.strip() for line in open(f'{resources_path}/auxiliary_verbs.txt').readlines()]
 dawords = [line.strip() for line in open(f'{resources_path}/dawords.txt').readlines()]
+modal_verbs = [line.strip() for line in open(f'{resources_path}/modal_verbs.txt').readlines()]
+female_names = [line.strip().lower() for line in open(f'{resources_path}/Names_female_Duden_2007.csv').readlines()]
+male_names = [line.strip().lower() for line in open(f'{resources_path}/Names_male_Duden_2007.csv').readlines()]
 
+
+def is_ne(sentence, current_span):
+    parse = nlp(sentence)
+    for token in parse[current_span['start']: current_span['end']]:
+        if token.ent_type_ == '':
+            return False
+    else:
+        return True
 
     
 ###################### NOUN GROUPS ######################
@@ -52,7 +64,7 @@ def get_genitive_groups(sentence :str) -> List[str]:
     genitive_groups = []
     
     for token in parse:
-        if "Gen" in token.morph.get('Case'):
+        if "Gen" in token.morph.get('Case')  and token.ent_type_ == '':
             genitive_group = " ".join([child.text for child in token.children])
             if genitive_group:
                 genitive_groups.append(" ".join([genitive_group,token.text]))
@@ -145,11 +157,27 @@ def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List
             if info:
                 if info[0] == 'Gen':
                     ne_gen_idx = i
-    
+
     if ne_gen_idx >=0:
         try:
-            dativ_word = derbi(parse[ne_gen_idx].text,{'Case': 'Dat'}, [0])  
-            poss_word = derbi('seine', parse[ne_gen_idx+1].morph.to_dict(), [0])   
+
+            token = parse[ne_gen_idx].text
+            dativ_word = derbi(token,{'Case': 'Dat'}, [0])  
+            if token[:-1].lower() in female_names or token[:-1].lower() in male_names: 
+                dativ_word = token[:-1]
+            morph = parse[ne_gen_idx+1].morph.to_dict()
+
+            if parse[ne_gen_idx+1].dep_ == 'pd':
+                morph['Case'] = 'Nom'
+
+            print(morph)
+            if token.lower() in female_names or token[:-1].lower() in female_names: 
+                poss_word = derbi('ihre', morph, [0]) 
+            elif token.lower() in male_names or token[:-1].lower() in male_names: 
+                poss_word = derbi('seine', morph, [0])                 
+            else:
+                return tokens, tags, replaced  
+
 
             if tokens[ne_gen_idx].istitle():
                 perturbed_tokens[ne_gen_idx] = dativ_word.capitalize()
@@ -160,11 +188,13 @@ def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List
             replaced = True
 
             return perturbed_tokens, perturbed_tags, replaced
-        except: 
+        except:
             return tokens, tags, replaced
+ 
 
     else:
         return tokens, tags, replaced
+     
     
 ###################### Article before personal names  ######################
 
@@ -176,7 +206,7 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
     
     parse = nlp(sentence)
     
-    morph = [[token.morph.get('Gender'), token.morph.get('Case'), token.tag_] for token in  parse ]
+    morph = [[token.morph.get('Gender'), token.morph.get('Case'), token.tag_, token.head] for token in  parse ]
 
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
@@ -184,28 +214,53 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
 
     for i, (token, tag) in enumerate(zip(tokens, tags)):
         if tag in person_tags:
-            person_gender, person_case, person_tag = morph[i]
+            
+        
+            person_gender, person_case, person_tag, person_head = morph[i]
+
+            
+            if token.lower() in female_names or token[:-1].lower() in female_names:
+                person_gender = ["FEM"]
+                
+            if token.lower() in male_names or token[:-1].lower() in male_names:
+                person_gender = ["MASC"]
+                
+            if person_gender == 'Neut' or  person_gender == []:
+                person_gender = ['MASC']
             
             if person_tag == 'PPER':
                 continue
             
-            if person_gender == 'Neut' or  person_gender == []:
-                person_gender = ['MASC']
+            
+            if person_head.text in prepositions_dict["dat"] or tokens[i-1] in prepositions_dict["dat"]:
+                person_case = ['Dat']
+                
+            if person_head.text in prepositions_dict["acc"] or tokens[i-1] in prepositions_dict["acc"]:
+                person_case = ['Acc']
+
             if person_case == []:
                 person_case = ['Nom']
             
             person_case = person_case[0].upper()
             person_gender = person_gender[0].upper()
             
+            print(person_case, person_gender)
+            
             article = articles_dict[f'{person_gender}.{person_case}']['de'][0]
             
             if i == 0:
                 article = article.capitalize()
             
-            perturbed_tokens.insert(i, article)    
-            perturbed_tags.insert(i, 'O')
-            replaced = True
-    
+            if article == "dem" and tokens[i-1] == "von":
+                perturbed_tokens[i-1] = "vom"
+                replace = True
+            
+            else:
+            
+                perturbed_tokens.insert(i, article)    
+                perturbed_tags.insert(i, 'O')
+                replaced = True
+
     perturbed_tokens[0]
     return perturbed_tokens,  perturbed_tags, replaced
 
@@ -287,7 +342,7 @@ def perturb_double_article(tokens: List[str], tags: List[str]) -> Tuple[List[str
 
 ###################### Swapped family and given names ######################
 
-def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
+def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:       
     
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
@@ -296,6 +351,8 @@ def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], Li
 
     per_spans = []
     current_span = None
+    
+    sentence = " ".join(tokens)
 
     for i, tag in enumerate(tags):
         if tag in person_tags:
@@ -307,7 +364,8 @@ def perturb_swap_name(tokens: List[str], tags: List[str]) -> Tuple[List[str], Li
             current_span['end'] = i + 1
         else:
             if current_span:
-                per_spans.append(current_span)
+                if is_ne(sentence, current_span):
+                    per_spans.append(current_span)
             current_span = None
 
     if current_span:
@@ -347,6 +405,12 @@ def perturb_denn_in_questions(tokens: List[str], tags: List[str]) -> Tuple[List[
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
     
+    
+    if tokens[0].lower() == "habe" and tokens[1] == "ich":
+        perturbed_tokens.insert(2, "denn")
+        perturbed_tags.insert(2, "O")
+        return perturbed_tokens, perturbed_tags, replaced
+        
     sentence = ' '.join(tokens)
     parse = nlp(sentence)
     dep = [token.dep_ for token in parse]
@@ -358,6 +422,7 @@ def perturb_denn_in_questions(tokens: List[str], tags: List[str]) -> Tuple[List[
     replaced = True
 
     return perturbed_tokens, perturbed_tags, replaced
+
 
     
     
@@ -371,6 +436,13 @@ def perturb_2_verb_clusters(tokens: List[str], tags: List[str]) -> Tuple[List[st
     replaced = False
     
     sentence = ' '.join(tokens)
+    
+    if "zu tun haben" in sentence:
+        return perturbed_tokens, perturbed_tags, replaced
+    
+
+    
+    
     parse = nlp(sentence)
 
     matcher = Matcher(nlp.vocab)
@@ -432,6 +504,10 @@ def perturb_am_infinitive(tokens: List[str], tags: List[str]) -> Tuple[List[str]
 
     parse = nlp(sentence)
     deps = [token.dep_ for token in parse]
+    
+    for token in parse:
+        if token.dep_ == "ROOT" and token.pos_ == "NOUN":
+            return perturbed_tokens, perturbed_tags, replaced 
 
     if 'rc' in deps:
         return perturbed_tokens,  perturbed_tags, replaced
@@ -443,6 +519,11 @@ def perturb_am_infinitive(tokens: List[str], tags: List[str]) -> Tuple[List[str]
                 continue
             try:
                 lemma = token.lemma_
+                
+                if lemma in modal_verbs:
+                    replaced = False
+                    return perturbed_tokens,  perturbed_tags, replaced
+                
                 perturbed_tokens[i] = derbi('sein', token.morph.to_dict(), [0]) 
                 perturbed_tags[i] = 'O'
                 
@@ -536,10 +617,13 @@ def perturb_nach(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[st
     matches = matcher(parse)
 
     for match_id, start, end in matches:
-        string_id = nlp.vocab.strings[match_id]  # Get string representation
-        span = parse[start:end]  # The matched span
-        perturbed_tokens[start] = 'auf'
-        replaced = True 
+        try:
+            string_id = nlp.vocab.strings[match_id]  # Get string representation
+            span = parse[start:end]  # The matched span
+            perturbed_tokens[start] = 'auf'
+            replaced = True 
+        except:
+            pass
 
     return perturbed_tokens,  perturbed_tags, replaced
 
@@ -672,15 +756,21 @@ def perturb_existential_clause(tokens: List[str], tags: List[str]) -> Tuple[List
 def perturb_schwa_elision_in_verbs(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
+    
+    sentence = " ".join(tokens)
+    parse = nlp(sentence)
+                
     replaced = False
     
-    for i, token in enumerate(tokens):
-        if token == "habe":
+    verbs = ["habe"]
+    
+    for i, token in enumerate(parse):
+        if (token.pos_ == "VERB" and token.text.endswith("e")) or (token.text in verbs):
             r = random.randint(0, 10)
             if r % 2 == 0:
-                perturbed_tokens[i] = "hab"
+                perturbed_tokens[i] = token.text[:-1]
             else:
-                perturbed_tokens[i] = "hab'"
+                perturbed_tokens[i] = token.text[:-1] + "'"
             replaced = True
             
     return perturbed_tokens, perturbed_tags, replaced
@@ -703,6 +793,7 @@ def perturb_tun_imperativ(tokens: List[str], tags: List[str]) -> Tuple[List[str]
     
     if pos_tags[0] == 'VERB' and tokens[0].endswith('e') or tokens[0].endswith('en') or any(char in tokens[0] for char in "äöü"):
         is_imperativ = True
+
     
     if is_imperativ == False:
         return tokens, tags, replaced
@@ -717,6 +808,8 @@ def perturb_tun_imperativ(tokens: List[str], tags: List[str]) -> Tuple[List[str]
     try:
         for ch in parse[0].children:
             if ch.pos_ == 'ADP':
+                if ch.i < len(tokens) - 2:
+                    continue
                 verb = ch.text + verb
                 perturbed_tokens.pop(ch.i)
                 perturbed_tags.pop(ch.i)
