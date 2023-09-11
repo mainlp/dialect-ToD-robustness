@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple
 
 import spacy
 from spacy.matcher import Matcher
-from spacy.attrs import * 
+from spacy.attrs import *
 from somajo import SoMaJo
 import random 
 
@@ -14,6 +14,10 @@ from pattern.de import conjugate
 from pattern.de import INFINITIVE, PRESENT, SG, SUBJUNCTIVE, PAST, PARTICIPLE
 
 from DERBI.derbi import DERBI
+
+import stanza
+
+stanza_nlp = stanza.Pipeline(lang='de', processors='tokenize,pos', use_gpu=False)
 
 
 folder_path = "CharSplit"
@@ -141,11 +145,30 @@ def perturb_genitive_to_dativ(tokens: List[str], tags: List[str]) -> Tuple[List[
 ###################### Possessive dative instead of genitive ######################
 
 
+def capitalize_sentence(sentence):
+    capitalized_tokens = []
+    parse = nlp(sentence)
+    for idx, token in enumerate(parse):
+        if token.text in female_names in female_names: 
+            capitalized_tokens.append(token.text.capitalize())
+        elif token.text in male_names or token.text[:-1] in male_names: 
+            capitalized_tokens.append(token.text.capitalize())
+        elif token.pos_ == 'NOUN' or idx == 0:
+            capitalized_tokens.append(token.text.capitalize())
+        else:
+            capitalized_tokens.append(token.text)
+    return ' '.join(capitalized_tokens)
+
+
+
+
 def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
     sentence = ' '.join(tokens)
+    capitalized_sentence = capitalize_sentence(sentence)
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
     parse = nlp(sentence)
+    stanza_parse = stanza_nlp(sentence)
     replaced = False 
     
     ne_gen_idx = -1
@@ -159,18 +182,35 @@ def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List
                     ne_gen_idx = i
 
     if ne_gen_idx >=0:
+        
         try:
-
             token = parse[ne_gen_idx].text
             dativ_word = derbi(token,{'Case': 'Dat'}, [0])  
             if token[:-1].lower() in female_names or token[:-1].lower() in male_names: 
                 dativ_word = token[:-1]
             morph = parse[ne_gen_idx+1].morph.to_dict()
 
+
+
+            if morph['Case'] == 'Nom':
+                feats = stanza_parse.sentences[0].words[ne_gen_idx+1].feats
+                stanza_morph = {}
+
+                parts = feats.split('|')
+                result_dict = {}
+
+                for part in parts:
+                    key, value = part.split('=')
+                    stanza_morph[key] = value
+
+
+                for key, value in stanza_morph.items():
+                    morph[key] = value
+
             if parse[ne_gen_idx+1].dep_ == 'pd':
                 morph['Case'] = 'Nom'
 
-            print(morph)
+
             if token.lower() in female_names or token[:-1].lower() in female_names: 
                 poss_word = derbi('ihre', morph, [0]) 
             elif token.lower() in male_names or token[:-1].lower() in male_names: 
@@ -190,10 +230,10 @@ def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List
             return perturbed_tokens, perturbed_tags, replaced
         except:
             return tokens, tags, replaced
- 
-
+        
     else:
         return tokens, tags, replaced
+     
      
     
 ###################### Article before personal names  ######################
@@ -205,6 +245,7 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
     replaced = False
     
     parse = nlp(sentence)
+    stanza_parse = stanza_nlp(sentence)
     
     morph = [[token.morph.get('Gender'), token.morph.get('Case'), token.tag_, token.head] for token in  parse ]
 
@@ -217,6 +258,18 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
             
         
             person_gender, person_case, person_tag, person_head = morph[i]
+            
+            feats = stanza_parse.sentences[0].words[i].feats
+            stanza_morph = {}
+
+            parts = feats.split('|')
+            result_dict = {}
+
+            for part in parts:
+                key, value = part.split('=')
+                stanza_morph[key] = value
+                
+            stanza_person_case = stanza_morph['Case']
 
             
             if token.lower() in female_names or token[:-1].lower() in female_names:
@@ -231,6 +284,8 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
             if person_tag == 'PPER':
                 continue
             
+            if person_case != stanza_person_case:
+                person_case = [stanza_person_case]
             
             if person_head.text in prepositions_dict["dat"] or tokens[i-1] in prepositions_dict["dat"]:
                 person_case = ['Dat']
@@ -241,10 +296,11 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
             if person_case == []:
                 person_case = ['Nom']
             
+
+            
             person_case = person_case[0].upper()
             person_gender = person_gender[0].upper()
             
-            print(person_case, person_gender)
             
             article = articles_dict[f'{person_gender}.{person_case}']['de'][0]
             
@@ -261,8 +317,8 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
                 perturbed_tags.insert(i, 'O')
                 replaced = True
 
-    perturbed_tokens[0]
     return perturbed_tokens,  perturbed_tags, replaced
+
 
 ###################### wie or als wie used to mark comparative constructions ######################
 
