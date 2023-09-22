@@ -1,0 +1,186 @@
+,sentence,perturbed_sentence,perturbation,ann_x,ann_y
+0,Frag ob Pauline zu meinem Thanksgiving - Treffen kommen will,Frag ob Pauline zu meinem Thanksgiving - Treffen will kommen,perturb_2_verb_clusters,5.0,1.0
+1,"Schreib Nick und frag , ob er das Foto gesehen hat","Schreib Nick und frag , ob er das Foto hat gesehen",perturb_2_verb_clusters,5.0,1.0
+2,"Lösche alle Alarme , die ich geplant habe","Lösche alle Alarme , die ich habe geplant",perturb_2_verb_clusters,5.0,1.0
+3,"Rezepte , die ich in 15 Minuten zubereiten kann","Rezepte , die ich in 15 Minuten kann zubereiten",perturb_2_verb_clusters,5.0,1.0
+4,lass mich wissen ob ich neue emails von michael erhalten habe,lass mich wissen ob ich neue emails von michael habe erhalten,perturb_2_verb_clusters,5.0,1.0
+5,öffne den davinci code dort wo ich zuletzt aufgehört habe,öffne den davinci code dort wo ich zuletzt habe aufgehört,perturb_2_verb_clusters,5.0,1.0
+7,"Welche sind die Städte, die von Delta Airlines bedient werden","Welche sind die Städte , die von Delta Airlines werden bedient",perturb_2_verb_clusters,5.0,1.0
+10,markiere heute als den start meiner diet,markiere heute wie den start meiner diet,perturb_als_in_comparative_constructions,1.0,3.0
+11,Wird es morgen heißer als 25 Grad Celsius ?,Wird es morgen heißer wie 25 Grad Celsius ?,perturb_als_in_comparative_constructions,5.0,5.0
+12,"Ich möchte einen Flug von Memphis nach Seattle , der nicht später als 3 Uhr nachmittags ankommt","Ich möchte einen Flug von Memphis nach Seattle , der nicht später wie 3 Uhr nachmittags ankommt",perturb_als_in_comparative_constructions,5.0,5.0
+13,ist weichkäse besser als harter,ist weichkäse besser wie harter,perturb_als_in_comparative_constructions,5.0,5.0
+14,Ist es kälter als normalerweise zu dieser Jahreszeit,Ist es kälter wie normalerweise zu dieser Jahreszeit,perturb_als_in_comparative_constructions,5.0,5.0
+15,"Gibt es andere Städte, über die ich von Boston nach Dallas fliegen kann, damit ich einen Flug früher als 10:17 Uhr vormittags nehmen kann","Gibt es andere Städte , über die ich von Boston nach Dallas fliegen kann , damit ich einen Flug früher wie 10:17 Uhr vormittags nehmen kann",perturb_als_in_comparative_constructions,5.0,5.0
+16,"Schreibe Jon , um ihn wissen zu lassen , dass das Abendessen fertig ist und wir alle auf ihn warten , wir werden nicht länger als fünf weitere Minuten warten","Schreibe Jon , um ihn wissen zu lassen , dass das Abendessen fertig ist und wir alle auf ihn warten , wir werden nicht länger wie fünf weitere Minuten warten",perturb_als_in_comparative_constructions,5.0,5.0
+17,auf welchen tag fällt ostern,auf welchen tag ist ostern am fallen,perturb_am_infinitive,2.0,1.0
+18,Was bedeutet LS,Was ist LS am bedeuten,perturb_am_infinitive,2.0,1.0
+19,"Ja , ja , ich höre dich .","Ja , ja , ich bin dich am hören .",perturb_am_infinitive,5.0,1.0
+20,Ich brauche für morgen einen Flug von Columbus nach Minneapolis,Ich bin für morgen einen Flug von Columbus nach Minneapolis am brauchen,perturb_am_infinitive,2.0,1.0
+21,Welchen Bodenverkehr gibt es in Denver,Welchen Bodenverkehr ist es in Denver am geben,perturb_am_infinitive,2.0,1.0
+22,Wecker löschen,Wecker sind am löschen,perturb_am_infinitive,1.0,2.0
+23,welchen sound macht ein hund,welchen sound ist ein hund am machen,perturb_am_infinitive,1.0,2.0
+26,Ich brauche einen Flug von Boston nach Pittsburgh mit Abflug früh am Morgen,Ich bin einen Flug von Boston nach Pittsburgh mit Abflug früh am Morgen am brauchen,perturb_am_infinitive,2.0,1.0
+27,Ich suche einen Flug von DC nach Minnesota,Ich bin einen Flug von DC nach Minnesota am suchen,perturb_am_infinitive,5.0,2.0
+28,ich gehe nicht zur BrickCon .,ich bin nicht zur BrickCon am gehen .,perturb_am_infinitive,3.0,1.0
+29,Wer machte seinen Abschluss am Creighton,Wer war seinen Abschluss am Creighton am machen,perturb_am_infinitive,5.0,1.0
+30,Ich brauche die Erinnerungen an Emersons Geburtstag im Mai nicht mehr .,Ich bin die Erinnerungen an Emersons Geburtstag im Mai nicht mehr am brauchen .,perturb_am_infinitive,2.0,1.0
+31,o k google spiele beliebige musik,o k google sei beliebige musik am spielen,perturb_am_infinitive,1.0,1.0
+32,Wo ist Ruth,Wo ist die Ruth,perturb_article_before_personal_name,5.0,5.0
+33,Starte einen Anruf mit Logan,Starte einen Anruf mit dem Logan,perturb_article_before_personal_name,5.0,5.0
+34,hat ute mir irgendwelche neuen emails geschickt,hat die ute mir irgendwelche neuen emails geschickt,perturb_article_before_personal_name,5.0,5.0
+35,"Wann hat Bob angefangen , bei Fox zu arbeiten ?","Wann hat der Bob angefangen , dem bei Fox zu arbeiten ?",perturb_article_before_personal_name,1.0,1.0
+36,was ist die büronummer von emilia,was ist die büronummer von der emilia,perturb_article_before_personal_name,5.0,5.0
+37,Wo lebt James ?,Wo lebt der James ?,perturb_article_before_personal_name,5.0,5.0
+38,Wie alt ist die Frau von John Stamos ?,Wie alt ist die Frau vom John Stamos ?,perturb_article_before_personal_name,5.0,5.0
+39,Ich muss Papa jetzt anrufen,Ich muss den Papa jetzt anrufen,perturb_article_before_personal_name,5.0,5.0
+40,Hat Pat Thiessen einen Sohn ?,Hat der Pat Thiessen einen Sohn ?,perturb_article_before_personal_name,5.0,5.0
+41,Ruf bitte Mama an,Ruf bitte die Mama an,perturb_article_before_personal_name,5.0,5.0
+42,In welchem Büro arbeitet Dany jetzt ?,In welchem Büro arbeitet der Dany jetzt ?,perturb_article_before_personal_name,5.0,5.0
+43,Hat Tom jemals einen Abschluss in Medizin gemacht ?,Hat der Tom jemals einen Abschluss in Medizin gemacht ?,perturb_article_before_personal_name,5.0,5.0
+44,email an natalie zu ihrem geburtstag,email an die natalie zu ihrem geburtstag,perturb_article_before_personal_name,5.0,5.0
+45,was ist um sechszehn uhr mit jan,was ist um sechszehn uhr mit dem jan,perturb_article_before_personal_name,5.0,4.0
+46,Rufe Gary an .,Rufe die Gary an .,perturb_article_before_personal_name,3.0,2.0
+47,termin anna morgen erstellen,termin die anna morgen erstellen,perturb_article_before_personal_name,1.0,2.0
+48,Gibt es heute Graupel ?,Gibts heute Graupel ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+49,Wird es für die Party am Samstag sonnig ?,Wirds für die Party am Samstag sonnig ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+50,Gibt es dieses Silvester gute Konzerte ?,Gibt's dieses Silvester gute Konzerte ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+51,wie spät ist es in weimar deutschland,wie spät ist's in weimar deutschland,perturb_contracted_verb_and_pronoun,5.0,5.0
+52,Regnet es heute irgendwann ?,Regnets heute irgendwann ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+53,Wie warm wird es diesen Monat werden ?,Wie warm wird's diesen Monat werden ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+54,Wird es vor 8 : 00 Uhr vormittags schneien ?,Wird's vor 8 : 00 Uhr vormittags schneien ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+55,in new york ist es jetzt wie spät,in new york ist's jetzt wie spät,perturb_contracted_verb_and_pronoun,5.0,5.0
+56,Ist es zu kalt für kurze Hosen ?,Ists zu kalt für kurze Hosen ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+57,Gibt es einen American Airlines -Flug von Houston nach Newark am zehnten Juni nach 6 Uhr abends,Gibts einen American Airlines -Flug von Houston nach Newark am zehnten Juni nach 6 Uhr abends,perturb_contracted_verb_and_pronoun,5.0,5.0
+58,Gibt es irgendwelche Erinnerungen für Freitag,Gibt's irgendwelche Erinnerungen für Freitag,perturb_contracted_verb_and_pronoun,5.0,5.0
+59,wenn du über drei dinge reden könntest worüber wäre es,wenn du über drei dinge reden könntest worüber wäre's,perturb_contracted_verb_and_pronoun,5.0,4.0
+60,Was gibt es Neues aus Guam ?,Was gibts Neues aus Guam ?,perturb_contracted_verb_and_pronoun,5.0,5.0
+61,Welchen Bodenverkehr gibt es in Denver,Welchen Bodenverkehr gibts in Denver,perturb_contracted_verb_and_pronoun,5.0,5.0
+62,Stelle dafür einen Timer,Stelle dadafür einen Timer,perturb_da,5.0,1.0
+68,Stelle dafür einen Timer,Stelle da einen Timer für,perturb_da,5.0,5.0
+69,Wie ist das Wetter heute ?,Wie ist denn das Wetter heute ?,perturb_denn_in_questions,5.0,5.0
+70,wie ist das dieswöchige wetter,wie ist denn das dieswöchige wetter,perturb_denn_in_questions,5.0,5.0
+71,Wie viele Stunden bis zum Wecker ?,Wie viele Stunden denn bis zum Wecker ?,perturb_denn_in_questions,5.0,5.0
+72,"Kannst du anzeigen , dass ich online verfügbar bin ?","Kannst denn du anzeigen , dass ich online verfügbar bin ?",perturb_denn_in_questions,3.0,4.0
+73,wie weit ist boston von new york entfernt,wie weit ist denn boston von new york entfernt,perturb_denn_in_questions,5.0,5.0
+74,Wie lange geht meine Timer noch ?,Wie lange geht denn meine Timer noch ?,perturb_denn_in_questions,5.0,5.0
+75,wie wird diese woche das wetter,wie wird denn diese woche das wetter,perturb_denn_in_questions,5.0,5.0
+76,Wie viel Fett ist in einem Brownie ?,Wie viel Fett ist denn in einem Brownie ?,perturb_denn_in_questions,5.0,5.0
+77,habe ich irgendwelche eingehenden emails,habe ich denn irgendwelche eingehenden emails ,perturb_denn_in_questions,5.0,5.0
+78,welche termine stehen heute an,welche termine stehen denn heute an,perturb_denn_in_questions,5.0,5.0
+79,Arbeitet jemand für McDonalds ?,Arbeitet denn jemand für McDonalds ?,perturb_denn_in_questions,5.0,5.0
+80,Wie hoch ist die Temperatur am Nordpol ?,Wie hoch ist denn die Temperatur am Nordpol ?,perturb_denn_in_questions,5.0,5.0
+81,Wie viel Zeit istt noch auf meinem Spaghetti - Timer ?,Wie viel Zeit istt denn noch auf meinem Spaghetti - Timer ?,perturb_denn_in_questions,5.0,5.0
+82,Was sind meine Erinnerungen für Dienstagmorgen ?,Was sind denn meine Erinnerungen für Dienstagmorgen ?,perturb_denn_in_questions,5.0,5.0
+83,wie viel ist der dollar im vergleich zum euro wert,wie viel ist denn der dollar im vergleich zum euro wert,perturb_denn_in_questions,5.0,5.0
+84,sende andre die neuesten it themen die es gibt,sende andre die neuesten it themen die es hat,perturb_existential_clause,5.0,4.0
+85,was ist die bedeutung des wortes immerwährend,was ist die bedeutung vom wort immerwährend,perturb_genitive_to_dativ,5.0,5.0
+86,Welcher Ort steht in der Erinnerung für das Abendessen des Schachclubs ?,Welcher Ort steht in der Erinnerung für das Abendessen vom Schachclub ?,perturb_genitive_to_dativ,5.0,5.0
+87,Lies mir Details des Polizeiberichts zum Raub im Norden von Minneapolis vor,Lies mir Details vom Polizeibericht zum Raub im Norden von Minneapolis vor,perturb_genitive_to_dativ,5.0,5.0
+88,Kannst du eine Erinnerung für das Fußballtraining meiner Söhne am Donnerstag um 4 erstellen ?,Kannst du eine Erinnerung für das Fußballtraining von meinen Söhnen am Donnerstag um 4 erstellen ?,perturb_genitive_to_dativ,5.0,5.0
+89,bringe mich zur webseite der frankfurter rundschau,bringe mich zur webseite von der frankfurtrem schau,perturb_genitive_to_dativ,1.0,2.0
+90,wie läuft es mit der lieferung des restaurants,wie läuft es mit der lieferung vom restaurant,perturb_genitive_to_dativ,5.0,5.0
+92,Welcher meiner Freunde ist zur HCC gegangen ?,Welcher von meinen Freunden ist zur HCC gegangen ?,perturb_genitive_to_dativ,5.0,5.0
+93,wo kauft kate middleton die klamotten ihrer kinder,wo kauft kate middleton die klamotten von ihren kindern,perturb_genitive_to_dativ,5.0,5.0
+94,Stelle die Erinnerung für den Anfang der Schule ein,Stelle die Erinnerung für den Anfang von der Schule ein,perturb_genitive_to_dativ,5.0,3.0
+95,lösche alles aus meinem kalender für den rest des jahres,lösche alles aus meinem kalender für den rest vom jahr,perturb_genitive_to_dativ,5.0,3.0
+96,Kannst du bitte eine SMS an die Gruppe der Schauspielfans schicken,Kannst du bitte eine SMS an die Gruppe von den Fans schicken,perturb_genitive_to_dativ,3.0,5.0
+97,Wer ist der Produzent dieses Albums ?,Wer ist der Produzent von dieserem Album ?,perturb_genitive_to_dativ,1.0,2.0
+98,was ist arnold schwarzeneggers geburtstag,was ist von arnold schwarzenegger geburtstag,perturb_genitive_to_dativ,1.0,1.0
+99,Finde die Freunde meiner Mutter .,Finde die Freunde von meiner Mutter .,perturb_genitive_to_dativ,5.0,5.0
+100,Flüge von Atlanta nach St. Louis am Dienstag vor 2:30 Uhr nachmittags,Flüge von Atlanta auf St. Louis am Dienstag vor 2:30 Uhr nachmittags,perturb_nach,5.0,5.0
+101,buche mein zug ticket nach köln,buche mein zug ticket auf köln,perturb_nach,5.0,5.0
+102,Suche bitte einen Flug von Las Vegas nach Michigan,Suche bitte einen Flug von Las Vegas auf Michigan,perturb_nach,5.0,5.0
+103,Zeige mir Erste-Klasse -Fluglinien von San Francisco nach Pittsburgh am nächsten Dienstag nur mit erster Klasse,Zeige mir Erste-Klasse -Fluglinien von San Francisco auf Pittsburgh am nächsten Dienstag nur mit erster Klasse,perturb_nach,5.0,5.0
+104,Kannst du mich über alle Flüge von San Francisco halt von Pittsburgh nach San Francisco am Montag informieren,Kannst du mich über alle Flüge von San Francisco halt von Pittsburgh auf San Francisco am Montag informieren,perturb_nach,5.0,5.0
+105,Zeige mir die Flüge von Minneapolis nach Indiana,Zeige mir die Flüge von Minneapolis auf Indiana,perturb_nach,5.0,5.0
+106,Zeige mir Tarife für Samstage von Washington nach Boston,Zeige mir Tarife für Samstage von Washington auf Boston,perturb_nach,5.0,5.0
+107,bitte buche mir ein ticket von gera nach leipzig am dienstag,bitte buche mir ein ticket von gera auf leipzig am dienstag,perturb_nach,5.0,5.0
+108,Was ist der günstigste Tarif für einen Flug von Washington DC nach Montreal,Was ist der günstigste Tarif für einen Flug von Washington DC auf Montreal,perturb_nach,5.0,5.0
+109,Flüge von San Diego nach Seattle,Flüge von San Diego auf Seattle,perturb_nach,5.0,5.0
+110,sag mir welche zug optionen ich habe nach köln nächsten mittwoch oder donnerstag,sag mir welche zug optionen ich habe auf köln nächsten mittwoch oder donnerstag,perturb_nach,5.0,5.0
+111,Zeige mir jetzt alle Hin- und Rück flüge von New York nach Miami,Zeige mir jetzt alle Hin- und Rück flüge von New York auf Miami,perturb_nach,5.0,5.0
+112,Zeige mir auch Flüge am Dienstag von San Francisco nach Pittsburgh,Zeige mir auch Flüge am Dienstag von San Francisco auf Pittsburgh,perturb_nach,5.0,5.0
+113,olly buch mir ein ticket nach berlin mit dem flixbus für dieses wochenende,olly buch mir ein ticket auf berlin mit dem flixbus für dieses wochenende,perturb_nach,5.0,5.0
+114,keine kommentare mehr,keine kommentare nicht mehr,perturb_negative_concord,5.0,3.0
+115,Wird Daytona Beach am Samstag um 13 : 00 Uhr keinen Regen haben ?,Wird Daytona Beach am Samstag um 13 : 00 Uhr keinen Regen nicht haben ?,perturb_negative_concord,5.0,3.0
+116,mache keine geräusche,mache keine geräusche nicht,perturb_negative_concord,5.0,3.0
+117,stelle sicher dass keine veranstaltungen in meinem kalendar sind,stelle sicher dass keine veranstaltungen nicht in meinem kalendar sind,perturb_negative_concord,5.0,3.0
+118,Nimm heute keine Anrufe an .,Nimm heute keine Anrufe nicht an .,perturb_negative_concord,5.0,3.0
+119,"Ich brauche kein Hundefutter , lösch die Erinnerung .","Ich brauche kein Hundefutter nicht , lösch die Erinnerung .",perturb_negative_concord,5.0,3.0
+120,kein gespräch bitte,kein gespräch nicht bitte,perturb_negative_concord,5.0,3.0
+121,ich möchte keine eier,ich möchte keine eier nicht,perturb_negative_concord,5.0,3.0
+122,Beantworte in den nächsten 15 Minuten keine Anrufe,Beantworte in den nächsten 15 Minuten keine Anrufe nicht,perturb_negative_concord,5.0,3.0
+123,mach keinen lärm bis zum wecker morgen,mach keinen lärm nicht bis zum wecker morgen,perturb_negative_concord,5.0,3.0
+124,"Kann ich Brot machen , wenn ich kein Salz habe","Kann ich Brot machen , wenn ich kein Salz nicht habe",perturb_negative_concord,5.0,3.0
+125,Verwende kein Video für diesen Anruf,Verwende kein Video nicht für diesen Anruf,perturb_negative_concord,5.0,3.0
+126,"Benachrichtige meinen Mann , haben wir keine Milch mehr ?","Benachrichtige meinen Mann , haben wir keine Milch nicht mehr ?",perturb_negative_concord,5.0,3.0
+127,kein licht in der küche,kein licht nicht in der küche,perturb_negative_concord,5.0,3.0
+128,ich möchte keine wecker haben,ich möchte keine wecker nicht haben,perturb_negative_concord,5.0,3.0
+129,Lösch die Erinnerung für Logans Party am Wochenende .,Lösch die Erinnerung für Logan seine Party am Wochenende .,perturb_possesive_genitive,5.0,5.0
+130,Ruf Milas Mutter an,Ruf Mila ihre Mutter an,perturb_possesive_genitive,5.0,5.0
+131,Ruf Lloyd Jesusa Curts Ehemann an,Ruf Lloyd Jesusa Curt sein Ehemann an,perturb_possesive_genitive,5.0,3.0
+132,Ignoriere alle Anrufe von der Liste von Jasons Sohn,Ignoriere alle Anrufe von der Liste von Jason seinem Sohn,perturb_possesive_genitive,5.0,5.0
+133,Liste die kommenden Geburtstage von Rochkes Freunden auf,Liste die kommenden Geburtstage von Rochke seinen Freunden auf,perturb_possesive_genitive,5.0,5.0
+134,Buche einen Tisch in der Nähe von Pats Büro .,Buche einen Tisch in der Nähe von Pat ihrem Büro .,perturb_possesive_genitive,5.0,5.0
+135,Ruf Keiras Sohn an,Ruf Keira ihre Sohn an .,perturb_possesive_genitive,2.0,3.0
+136,wo findet Marias geburtstagsparty statt ?,wo findet Maria ihre geburtstagsparty statt ?,perturb_possesive_genitive,5.0,4.0
+137,kannst du lenas geburtstag am zweiundzwanzigsten juni eintragen,kannst du lena ihren geburtstag am zweiundzwanzigsten juni eintragen,perturb_possesive_genitive,5.0,4.0
+138,wann ist robin williams geburtstag,wann ist robin william sein geburtstag ?,perturb_possesive_genitive,5.0,5.0
+139,"Stelle bitte einen Wecker , der montags um 7 : 00 Uhr klingelt .","Stelle bitte einen Wecker , wo montags um 7 : 00 Uhr klingelt .",perturb_relative_pronoun,5.0,4.0
+140,"Sachen , die man nächstes Wochenende in Denver machen kann","Sachen , wo man nächstes Wochenende in Denver machen kann",perturb_relative_pronoun,5.0,5.0
+141,"Ich brauche eine Erinnerung , meine Arbeitszeiten , die ich in der Zentralzeit schreibe , zu Pazifikzeit zu ändern","Ich brauche eine Erinnerung , meine Arbeitszeiten , wo ich in der Zentralzeit schreibe , zu Pazifikzeit zu ändern",perturb_relative_pronoun,5.0,4.0
+142,"Welches ist das kleinste Flugzeug, das am sechzehnten Achten von Pittsburgh nach Baltimore fliegt","Welches ist das kleinste Flugzeug , wo am sechzehnten Achten von Pittsburgh nach Baltimore fliegt",perturb_relative_pronoun,5.0,5.0
+143,"meine Freunde , die an der UW Madison waren","meine Freunde , wo an der UW Madison waren",perturb_relative_pronoun,5.0,4.0
+144,"Freunde , die jetzt online sind","Freunde , wo jetzt online sind",perturb_relative_pronoun,5.0,4.0
+145,"Bitte nenne mir die Fluglinien, die von Toronto nach San Diego fliegen","Bitte nenne mir die Fluglinien , wo von Toronto nach San Diego fliegen",perturb_relative_pronoun,5.0,3.0
+146,"Nenn mir die Erinnerungen , die Mama und Papa betreffen .","Nenn mir die Erinnerungen , wo Mama und Papa betreffen .",perturb_relative_pronoun,5.0,3.0
+147,"Zeige mir Leute , die bei Google angestellt sind","Zeige mir Leute , wo bei Google angestellt sind",perturb_relative_pronoun,5.0,3.0
+148,"Zeige mir die Fluglinien, die Love Field nutzen","Zeige mir die Fluglinien , wo Love Field nutzen",perturb_relative_pronoun,5.0,3.0
+149,"Konzerte , die morgen Abend in Austin stattfinden","Konzerte , wo morgen Abend in Austin stattfinden",perturb_relative_pronoun,5.0,3.0
+150,"Stelle einen Timer , der um 21 : 00 Uhr beginnt","Stelle einen Timer , wo um 21 : 00 Uhr beginnt",perturb_relative_pronoun,5.0,3.0
+151,"Bitte nenne Events , die in PA stattfinden","Bitte nenne Events , wo in PA stattfinden",perturb_relative_pronoun,5.0,3.0
+152,"Suche mir einen Flug, der von Memphis nach Tacoma fliegt","Suche mir einen Flug , wo von Memphis nach Tacoma fliegt",perturb_relative_pronoun,5.0,3.0
+153,"Sende eine Nachricht an die japanische Meeting - Gruppe , die frohes neues Jahr sagt","Sende eine Nachricht an die japanische Meeting - Gruppe , wo frohes neues Jahr sagt",perturb_relative_pronoun,5.0,3.0
+154,"Lösche alle Weckrufe , die ich eingestellt habe .","Lösche alle Weckrufe , die ich eingestellt hab .",perturb_schwa_elision_in_verbs,4.0,5.0
+155,ich habe gerade nicht genug geld um mir die nintendo switch zu kaufen kannst du sie bitte von meiner amazon wunschliste entfernen,ich hab gerade nicht genug geld um mir die nintendo switch zu kaufen kannst du sie bitte von meiner amazon wunschliste entfernen,perturb_schwa_elision_in_verbs,5.0,5.0
+156,"Was ist die nächste Erinnerung , die ich eingestellt habe ?","Was ist die nächste Erinnerung , die ich eingestellt hab ?",perturb_schwa_elision_in_verbs,5.0,5.0
+157,habe ich irgendeine neue email von joe,hab' ich irgendeine neue email von joe,perturb_schwa_elision_in_verbs,5.0,5.0
+158,ich habe gerade eine email von bernd bekommen ich muss sofort darauf antworten,ich hab' gerade eine email von bernd bekommen ich muss sofort darauf antworten,perturb_schwa_elision_in_verbs,5.0,5.0
+159,welche neuen emails habe ich,welche neuen emails hab ich,perturb_schwa_elision_in_verbs,5.0,5.0
+160,Jetzt habe ich ausgeredet,Jetzt hab' ich ausgeredet,perturb_schwa_elision_in_verbs,5.0,5.0
+161,welche wecker habe ich gestellt,welche wecker hab ich gestellt,perturb_schwa_elision_in_verbs,5.0,5.0
+162,was habe ich heute morgen zwischen zehn und zwölf uhr zu tun,was hab ich heute morgen zwischen zehn und zwölf uhr zu tun,perturb_schwa_elision_in_verbs,5.0,5.0
+163,starte den podcast den ich letzte nacht angefangen habe,starte den podcast den ich letzte nacht angefangen hab,perturb_schwa_elision_in_verbs,4.0,5.0
+164,habe ich irgendein warnungen,hab' ich irgendein warnungen,perturb_schwa_elision_in_verbs,5.0,5.0
+165,Welche Erinnerungen habe ich für meinen Chef,Welche Erinnerungen hab' ich für meinen Chef,perturb_schwa_elision_in_verbs,5.0,5.0
+166,heute habe ich eine bulldogge gesehen,heute hab' ich eine bulldogge gesehen,perturb_schwa_elision_in_verbs,5.0,5.0
+167,"Lies mir alle Nachrichten , die ich zwischen 00 : 00 Uhr und 13 : 30 Uhr bekommen habe","Lies mir alle Nachrichten , die ich zwischen 00 : 00 Uhr und 13 : 30 Uhr bekommen hab",perturb_schwa_elision_in_verbs,5.0,5.0
+168,"Benachrichtige Mama und sag ihr , dass ich verstehe , warum sie gehen musste , und dass ich sie lieb habe .","Benachrichtige Mama und sag ihr , dass ich verstehe , warum sie gehen musste , und dass ich sie lieb hab .",perturb_schwa_elision_in_verbs,4.0,5.0
+169,Spiele John Mayer .,Spiele Mayer John .,perturb_swap_name,5.0,3.0
+170,wie ist verona pooth berühmt geworden,wie ist pooth verona berühmt geworden,perturb_swap_name,5.0,3.0
+171,Rufe Alice Howe über Whatsapp an,Rufe Howe Alice über Whatsapp an,perturb_swap_name,5.0,4.0
+172,ist tom cruise einzelkind,ist cruise tom einzelkind,perturb_swap_name,5.0,3.0
+173,wo wurde mahatma gandhi geboren,wo wurde gandhi mahatma geboren,perturb_swap_name,5.0,3.0
+174,Ich möchte mit Deanne Pabey sprechen,Ich möchte mit Pabey Deanne sprechen,perturb_swap_name,5.0,4.0
+177,"Versuch , Marina Brandon anzurufen","Versuch , Brandon Marina anzurufen",perturb_swap_name,5.0,4.0
+178,Spiel das bekanntestes Lied von Selena Gomez,Spiel das bekanntestes Lied von Gomez Selena,perturb_swap_name,5.0,3.0
+179,spiel Thomas Rhett,spiel Rhett Thomas,perturb_swap_name,5.0,3.0
+180,wann wurde justin bieber geboren,wann wurde bieber justin geboren,perturb_swap_name,5.0,3.0
+181,Ruf stattdessen Gloria Burgess an,Ruf stattdessen Burgess Gloria an,perturb_swap_name,5.0,4.0
+182,Ich möchte mehr Michael Jackson bitte .,Ich möchte mehr Jackson Michael bitte .,perturb_swap_name,5.0,3.0
+183,Füge emilie autumn zu meiner Nação Reggae-Wiedergabeliste hinzu .,Füge autumn emilie zu meiner Nação Reggae-Wiedergabeliste hinzu .,perturb_swap_name,5.0,3.0
+184,Lösch meinen aktuellen Alarm,Tu meinen aktuellen Alarm löschen,perturb_tun_imperativ,5.0,5.0
+185,erinnere mich an notwendige veranstaltungen,Tu mich an notwendige veranstaltungen erinnern,perturb_tun_imperativ,5.0,5.0
+187,Zeige mir Direkt flüge von New York City nach Los Angeles nach 10 Uhr morgens,Tue mir Direkt flüge von New York City nach Los Angeles nach 10 Uhr morgens zeigen,perturb_tun_imperativ,5.0,4.0
+188,entferne den termin mit klaus meier von meinem kalender,Tu den termin mit klaus meier von meinem kalender entfernen,perturb_tun_imperativ,5.0,5.0
+189,spiele meinen meistgeschauten podcast,Tue meinen meistgeschauten podcast spielen,perturb_tun_imperativ,5.0,5.0
+190,favorisiere diese musik,Tue diese musik favorisieren,perturb_tun_imperativ,5.0,5.0
+191,Zeige mir meine Nachrichten von Tante Iris,Tu mir meine Nachrichten von Tante Iris zeigen,perturb_tun_imperativ,5.0,4.0
+192,Zeige mir Flüge von Washington DC nach Boston,Tu mir Flüge von Washington DC nach Boston zeigen,perturb_tun_imperativ,5.0,4.0
+193,spiele song smile,Tue song smile spielen,perturb_tun_imperativ,5.0,3.0
+194,stelle einen neuen wecker für diese zeit,Tu einen neuen wecker für diese zeit stellen,perturb_tun_imperativ,5.0,5.0
+195,Zeige mir Flüge mit Tarifen von Indianapolis nach Memphis am Montag,Tue mir Flüge mit Tarifen von Indianapolis nach Memphis am Montag zeigen,perturb_tun_imperativ,5.0,4.0
+196,spiele die radiostation neunhundert neunundachtzig,Tu die radiostation neunhundert neunundachtzig spielen,perturb_tun_imperativ,5.0,3.0
+197,ändere die opazität der farben,ändere die opazität von den farben,perturb_genitive_to_dativ,5.0,5.0
+198,erhöhe die lautstärke der musik auf neunzig,erhöhe die lautstärke von der musik auf neunzig,perturb_genitive_to_dativ,5.0,5.0
