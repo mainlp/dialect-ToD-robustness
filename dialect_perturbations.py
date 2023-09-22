@@ -20,16 +20,7 @@ import stanza
 stanza_nlp = stanza.Pipeline(lang='de', processors='tokenize,pos', use_gpu=False)
 
 
-folder_path = "CharSplit"
-
-try:
-    os.rmdir(folder_path)
-    print(f"Folder '{folder_path}' has been removed.")
-except OSError as e:
-    print(f"Error: {e}")
-
-
-resources_path = 'phenomena/resources'
+resources_path = 'resources'
 
 tokenizer = SoMaJo("de_CMC", split_camel_case=True)
 nlp = spacy.load('de_core_news_sm')
@@ -259,17 +250,23 @@ def perturb_article_before_personal_name(tokens: List[str], tags: List[str]) -> 
         
             person_gender, person_case, person_tag, person_head = morph[i]
             
-            feats = stanza_parse.sentences[0].words[i].feats
-            stanza_morph = {}
+            try:
+                feats = stanza_parse.sentences[0].words[i].feats
+                stanza_morph = {}
 
-            parts = feats.split('|')
-            result_dict = {}
+                parts = feats.split('|')
+                result_dict = {}
 
-            for part in parts:
-                key, value = part.split('=')
-                stanza_morph[key] = value
-                
-            stanza_person_case = stanza_morph['Case']
+                for part in parts:
+                    key, value = part.split('=')
+                    stanza_morph[key] = value
+            except:
+                stanza_person_case  = person_case
+            
+            try:
+                stanza_person_case = stanza_morph['Case']
+            except KeyError:
+                stanza_person_case  = person_case
 
             
             if token.lower() in female_names or token[:-1].lower() in female_names:
@@ -720,17 +717,9 @@ def perturb_in(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str]
 def perturb_negative_concord(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
-    
-    sentence = ' '.join(tokens)
-    
+    sentence = ' '.join(tokens)    
     replaced = False
-    
-    tokens = sentence.split()
-    perturbed_tokens = tokens.copy()
 
-    tags = ['O'] * len(tokens)
-    perturbed_tags = tags.copy()
-    
     parse = nlp(sentence)
 
     gram_info = [(chunk.text, chunk.end) for chunk in parse.noun_chunks if chunk.text.startswith('kein')]
@@ -752,7 +741,6 @@ def perturb_relative_pronoun(tokens: List[str], tags: List[str]) -> Tuple[List[s
     perturbed_tokens = tokens.copy()
     perturbed_tags = tags.copy()
     sentence = ' '.join(tokens)
-    
     replaced = False
 
     parse = nlp(sentence)
