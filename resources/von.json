@@ -1,0 +1,9 @@
+{
+	"_comment": "This includes 'von' and 'von+DET' ('vom' etc.). Largely based on Wikipedia usage.",
+	"nds": ["van", "vun", "vun'n", "van'n"],
+	"ksh": ["vun", "von", "vong", "vum", "fon", "fun", "fum"],
+	"lb": ["vun", "vum"],
+	"als": ["vo", "fp"],
+	"bar": ["vo", "fo"]
+
+}

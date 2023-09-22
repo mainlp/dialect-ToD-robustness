@@ -1,0 +1,182 @@
+{
+	"ANY": {
+		"nds": ["en", "ern", "eln"],
+		"ksh": ["e", "nn"],
+		"lb": ["en", "eën"],
+		"als": ["a", "â", "ä", "e"],
+		"bar": ["a", "à", "m", "n", "ng", "an", "àn", "en", "ln"],
+		"_comment": "NDS also has a pattern of 'long vowel + -n' ('slaan' schlagen, 'gahn' gehen). I don't know whether the long vowel is always orthographically indicated though."
+	},
+	"ben": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["m"]
+	},
+	"chen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["cha", "chà"]
+	},
+	"den": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["n"]
+	},
+	"fen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["ffa", "fa", "ffà", "fà"]
+	},
+	"gen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["ng"]
+	},
+	"hen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["ng"]
+	},
+	"ken": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["gga", "ggà"]
+	},
+	"len": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["in"]
+	},
+	"men": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["mma", "ma", "mmà", "mà"]
+	},
+	"nen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["na", "nà"]
+	},
+	"nden": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["nddn", "ndn"]
+	},
+	"ngen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["nga", "ngà"]
+	},
+	"pen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["bba", "bbà"]
+	},
+	"ren": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["an", "àn"]
+	},
+	"sen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["sn"]
+	},
+	"schen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["schn"]
+	},
+	"sten": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["sdn", "schdn"]
+	},
+	"ten": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["ddn"]
+	},
+	"zen": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["zn"]
+	},
+	"eln": {
+		"nds": ["eln"],
+		"ksh": [],
+		"lb": ["elen"],
+		"als": [],
+		"bar": ["ln", "en"],
+		"_comment": "ALS Swabian: -la"
+	},
+	"ern": {
+		"nds": ["ern"],
+		"ksh": [],
+		"lb": ["eren"],
+		"als": [],
+		"bar": ["an", "àn"],
+		"_comment": "ALS Swabian: -ra"
+	},
+	"VOWEL+en": {
+		"nds": [],
+		"ksh": [],
+		"lb": [],
+		"als": [],
+		"bar": ["n"]
+	},
+	"_sources": {
+		"nds": ["https://www.platt-wb.de/info/regelmaessige-verben",
+				"https://www.platt-wb.de/info/unregelmaessige-verben",
+				"http://www.plattmaster.de/gramm2.htm",
+				"http://lowlands-l.net/grammar/starke_verben.htm",
+				"https://www.platt-wb.de/info/unregelmaessige-verben",
+				"The subcategories belonging to https://nds.wiktionary.org/wiki/Kategorie:Nedderd%C3%BC%C3%BCtsch_Verben",
+				"D. Stellmacher (1983): Phonologie und Morphologie"],
+		"lb": ["https://www.verben.lu/"],
+		"ksh": ["https://www.koelsch-akademie.de/fileadmin/user_upload/www.koelsch-akademie.de/Sprachwissenschaft/Op_Koelsch_gesaht/Verben_-_Regelm_u._unregelm.pdf"],
+		"als": ["https://als.wikipedia.org/wiki/Wort:Schw%C3%A4bische_Vokabeln#Verben",
+			    "https://als.wikipedia.org/wiki/Wort:M%C3%BClhauser_Wortschatz#Verb",
+				"https://als.wikipedia.org/wiki/Alemannische_Grammatik#Verb"],
+		"bar": ["L. Merkle (1993): Bairische Grammatik, pp. 40-41"]
+	},
+	"_comment": "'ANY' is for non-bitext cases or where we might just not know detailed information about the equivalent Standard German form. This overview excludes irregular verbs (that oftentimes also don't end with -e(r/l)n in Standard German, e.g. sein, tun)."
+}

@@ -1,0 +1,25 @@
+{
+	"diminutive": {
+		"nds": ["tje","ike","ke"],
+		"ksh": ["che","je","elche"],
+		"lb": ["elchen"],
+		"als": ["li","ji","tschi","le","la", "elti", "si","alti","i","ti","dschi","ulti","älti","ti","tsi"],
+		"bar": ["erl","l","ele","ale","ndl"],
+		"de": ["chen","lein","gen"]
+	},
+
+	"_sources": {
+		"nds": [],
+		"lb": ["https://en.wiktionary.org/wiki/-elchen#Luxembourgish"],
+		"ksh": ["https://ksh.wikipedia.org/wiki/Diminutiv"],
+		"als": ["https://de.wikipedia.org/wiki/-li",
+			"https://als.wikipedia.org/wiki/Macugnagadeutsch",
+			"https://als.wikipedia.org/wiki/Südwalserdeutsch",
+			"https://als.wikipedia.org/wiki/Rimadeutsch",
+			"https://als.wikipedia.org/wiki/Jaundeutsch",
+			"https://als.wikipedia.org/wiki/Gurinerdeutsch",
+			"https://als.wikipedia.org/wiki/Gressoneydeutsch",
+			"https://als.wikipedia.org/wiki/Südwalserdeutsch"],
+		"bar": ["https://bar.wikipedia.org/wiki/Boarisch"]
+	}
+}

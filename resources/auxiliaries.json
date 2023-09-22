@@ -1,0 +1,80 @@
+{
+	"haben.3SG.PRES": {
+		"nds": ["hett", "heeft", "het", "heft", "hef"],
+		"ksh": ["hät"],
+		"lb": ["huet"],
+		"als": ["het", "hot", "hët", "hät"],
+		"bar": ["hod", "hot", "hout", "håd"]
+	},
+	"haben.3SG.PRET": {
+		"nds": ["harr"],
+		"ksh": ["hatt"],
+		"lb": ["hat"],
+		"als": [],
+		"bar": []
+	},
+	"haben.3SG.PRES+PRON": {
+		"bar": ["hods", "hots", "houts", "håds"]
+	},
+	"haben.3PL.PRES": {
+		"nds": ["hebbt", "hebben"],
+		"ksh": ["han","hät"],
+		"lb": ["hunn"],
+		"als": ["hënd", "hend", "händ", "hei", "han", "ha", "hai"],
+		"bar": ["hom", "hammand", "ham"]
+	},
+	"haben.3PL.PRET": {
+		"nds": ["harrn"],
+		"ksh": ["hatt"],
+		"lb": ["hatte"],
+		"als": [],
+		"bar": []
+	},
+	"sein.3SG.PRES": {
+		"nds": ["is"],
+		"ksh": ["es", "ess", "eß"],
+		"lb": ["ass"],
+		"als": ["isch"],
+		"bar": ["is", "isch"]
+	},
+    "sein.3SG.PRET": {
+		"nds": ["weer","was"],
+		"ksh": ["wor"],
+		"lb": ["war"],
+		"als": [],
+		"bar": []
+	},
+	"sein.3PL.PRES": {
+		"nds": ["sünd", "bünd"],
+		"ksh": ["sin", "sinn"],
+		"lb": ["sinn"],
+		"als": ["sind", "si", "sin"],
+		"bar": ["san", "sand", "sein", "sàn", "hàn", "han", "hànd", "hand"]
+	},
+    "sein.3PL.PRET": {
+		"nds": ["weern","wassen"],
+		"ksh": ["wore"],
+		"lb": ["waren","ware"],
+		"als": [],
+		"bar": []
+	},
+	"sein.3PL.PRES+PRON": {
+		"bar": ["sans", "sàns", "hàns", "hans"]
+	},
+	"_sources": {
+		"nds": ["https://nds.wikipedia.org/wiki/Plattd%C3%BC%C3%BCtsche_Grammatik#De_H%C3%BClpsverben",
+			"https://nds-nl.wikipedia.org/wiki/Nedersaksische_warkwoordsv%C3%B6rms"],
+		"lb": ["https://www.verben.lu/pdf/t1.pdf",
+			"https://www.verben.lu/pdf/t2.pdf"],
+		"ksh": ["https://de.wikipedia.org/wiki/K%C3%B6lsch_(Sprache)#Verben",
+			"usage observation on ksh Wikipedia"],
+		"als": ["Russ (1990): High Alemannic, p. 378",
+			"S. Rabanus (2008): Morphologisches Minimum, p. 159",
+			"https://als.wikipedia.org/wiki/Kurzverb"],
+		"bar": ["L. Merkle (1993): Bairische Grammatik, pp. 63-64",
+			"H. Weiß (1998): Syntax des Bairischen, p. 51",
+			"https://bar.wikipedia.org/wiki/Boarische_Grammatik_(Verbn)#Gengwart",
+               "https://www.bairische-sprache.at/Index/Remaraweng%20Boarisch%20-%20Lehren/konjugieren%20von%20Verben.htm"]
+	},
+	"_comment": "Only 3rd person present tense forms for now. The +PRON forms are for VERB+PRON contractions that *can* appear in subordinate clauses/questions/etc, but those dialects also have separate VERB PRON sequences."
+}

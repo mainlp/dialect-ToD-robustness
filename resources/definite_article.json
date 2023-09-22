@@ -1,0 +1,127 @@
+{
+	"MASC.NOM": {
+		"nds": ["de"],
+		"ksh": ["dä", "der", "d'r"],
+		"lb": ["de", "den"],
+		"als": ["dor", "dr", "de", "der"],
+		"bar": ["da", "dă", "deă", "dea", "deà", "dà"],
+		"de": ["der"]
+	},
+	"MASC.DAT": {
+		"nds": ["den"],
+		"ksh": ["däm", "dem"],
+		"lb": ["dem"],
+		"als": ["em", "im", "am"],
+		"bar": ["dem", "den", "deăm", "deăn", "ăm", "ăn", "am", "an", "m", "n", "àm", "àn"],
+		"de": ["dem"]
+	},
+	"MASC.ACC": {
+		"nds": ["den"],
+		"ksh": ["dä", "der", "d'r"],
+		"lb": ["de", "den"],
+		"als": ["dor", "dr", "de"],
+		"bar": ["den", "deăn", "dean", "ăn", "an", "ĕn", "en", "n", "in", "àn"],
+		"de": ["den"]
+	},
+	"MASC.GEN": {
+		"de": ["des"]
+	},
+	"FEM.NOM": {
+		"nds": ["de"],
+		"ksh": ["die", "de"],
+		"lb": ["d'", "déi"],
+		"als": ["d", "di"],
+		"bar": ["d", "de", "dej", "dĕ"],
+		"de": ["die"]
+	},
+	"FEM.DAT": {
+		"nds": ["de"],
+		"ksh": ["dä", "der"],
+		"lb": ["der"],
+		"als": ["dor", "dr", "der", "er"],
+		"bar": ["da", "deăra", "deara", "dă", "derà", "dera", "dà"],
+		"de": ["der"]
+	},
+	"FEM.ACC": {
+		"nds": ["de"],
+		"ksh": ["die", "de"],
+		"lb": ["d'"],
+		"als": ["d", "di"],
+		"bar": ["d", "de", "dej", "dĕ"],
+		"de": ["die"]
+	},
+	"FEM.GEN": {
+		"de": ["der"]
+	},
+	"NEUT.NOM": {
+		"nds": ["dat"],
+		"ksh": ["dat", "et"],
+		"lb": ["d'", "dat"],
+		"als": ["s", "ds", "es"],
+		"bar": ["ăs", "as", "dees", "s", "ĕs", "es", "às"],
+		"de": ["das"]
+	},
+	"NEUT.DAT": {
+		"nds": ["dat", "'t", "den"],
+		"ksh": ["däm", "dem"],
+		"lb": ["d'", "dem"],
+		"als": ["em", "im"],
+		"bar": ["ăm", "am", "dem", "den", "deăm", "deam", "deăn", "dean", "ăn", "an", "ĕm", "em", "ĕn", "en", "m", "n", "im", "àm", "àn"],
+		"de": ["dem"]
+	},
+	"NEUT.ACC": {
+		"nds": ["dat", "'t"],
+		"ksh": ["dat", "et"],
+		"lb": ["dem'"],
+		"als": ["s", "ds"],
+		"bar": ["ăs", "as", "dees", "s", "ĕs", "es", "às"],
+		"de": ["das"]
+	},
+	"NEUT.GEN": {
+		"de": ["des"]
+	},
+	"PL.NOM": {
+		"nds": ["de"],
+		"ksh": ["die", "de"],
+		"lb": ["d'", "déi"],
+		"als": ["d", "di"],
+		"bar": ["d", "de", "dej", "dĕ"],
+		"de": ["die"]
+	},
+	"PL.DAT": {
+		"nds": ["de"],
+		"ksh": ["dä", "de"],
+		"lb": ["de"],
+		"als": ["de", "dr"],
+		"bar": ["de", "dĕ", "dene", "deăne", "deane"],
+		"de": ["der"]
+	},
+	"PL.ACC": {
+		"nds": ["de"],
+		"ksh": ["die", "de"],
+		"lb": ["d'"],
+		"als": ["d", "di"],
+		"bar": ["d", "de", "dej", "dĕ"],
+		"de": ["die"]
+	},
+	"_sources": {
+		"nds": ["M. Durrell (1990): Westphalian and Eastphalian, p. 78",
+			"H. Schönfeld (1990): East Low German, p. 111",
+			"https://nds.wikipedia.org/wiki/Plattd%C3%BC%C3%BCtsche_Grammatik#Dat_B%C3%B6gen_von_de_H%C3%B6%C3%B6ftw%C3%B6%C3%B6r",
+			"usage observation on Wikipedia ('t)"],
+		"lb": ["https://learn.llo.lu/platform/#/discover/GRAMMAR/ARTIKELEN/lesson/LB_LU_A1_GRAMMAR_BESTEMMTEN_AN_ONBESTEMMTEN_ARTIKEL/activity/LB_LU_A1_GRAMMAR_BESTEMMTEN_AN_ONBESTEMMTEN_ARTIKEL_GRAMMAR_RULE_BESTEMMTEN_AN_ONBESTEMMTEN_ARTIKEL/grammar",
+			"https://learn.llo.lu/platform/#/discover/GRAMMAR/ARTIKELEN/lesson/LB_LU_A2_GRAMMAR_SUBSTANTIVEN_AN_ARTIKELEN_KASUS/activity/LB_LU_A2_GRAMMAR_SUBSTANTIVEN_AN_ARTIKELEN_KASUS_GRAMMAR_RULE_SUBSTANTIVEN_AN_ARTIKELEN_KASUS_GRAMMAR_RULE/grammar",
+			"https://learn.llo.lu/platform/#/discover/GRAMMAR/ADJEKTIVEN/lesson/LB_LU_A2_GRAMMAR_ADJEKTIVDEKLINATIOUN/activity/LB_LU_A2_GRAMMAR_ADJEKTIVDEKLINATIOUN_GRAMMAR_RULE_ADJEKTIVDEKLINATIOUN/grammar"],
+		"ksh": ["https://en.wikipedia.org/wiki/Colognian_declension#Articles",
+			"https://de.wikipedia.org/wiki/K%C3%B6lsch_(Sprache)#Artikel"],
+		"als": ["H. Christen (2019): Alemannisch in der Schweiz",
+			"T. Streck (2015): Alemannisch in Deutschland",
+			"https://de.wikipedia.org/wiki/Schw%C3%A4bische_Grammatik#Der_bestimmte_Artikel",
+			"https://als.wikipedia.org/wiki/Alemannische_Grammatik#Artikel",
+			"https://als.wikipedia.org/wiki/Deklination_im_Alemannischen"],
+		"bar": ["L. Merkle (1993): Bairische Grammatik, p. 85",
+			"https://bar.wikipedia.org/wiki/Boarische_Grammatik_(Substantive)",
+			"https://bar.wikipedia.org/wiki/Boarisch#Da_Artikl"]
+	},
+	"_comment": "Alemannic and Luxembourgish use different article forms in DET-NOUN and DET-ADJ-NOUN constructions. Both versions are included here."
+}

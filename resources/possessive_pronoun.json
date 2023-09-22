@@ -1,0 +1,43 @@
+{
+	"MASC": {
+		"nds": ["sien", "siene", "sienen", "siener"],
+		"ksh": ["si", "sing", "singe", "singem", "singer"],
+		"lb": ["säin", "seng", "sengem", "senger", "sengen"],
+		"als": ["sae", "saene", "sy", "sis", "síns", "síni", "síne", "si", "sini", "sins", "sine", "syn", "sym", "syni", "syner", "synere", "sys", "syne", "siner", "sinere"],
+		"bar": ["sei", "seim", "sein", "seina", "seine", "seins", "seis", "sẽĩ"]
+	},
+	"FEM": {
+		"nds": ["ehr", "ehre", "ehren", "öhr", "öhre", "öhren", "öhrer"],
+		"ksh": ["ehre", "eerem", "ehrem", "eer", "eerer", "ehrer"],
+		"lb": ["hiren", "hiert", "hir", "hirem", "hirer"],
+		"als": ["ir", "ire", "ihr", "ihrs", "ihri", "ihre"],
+		"bar": ["iără", "iara", "iă", "ia", "ian", "iam", "iaram", "iaran", "iarana", "ià", "iàrà", "iàn", "iàm", "iàràn", "iàràm"]
+	},
+	"NEUT": {
+		"nds": ["sien", "siene", "sienen", "siener"],
+		"ksh": ["si", "sing", "singe", "singem", "singer"],
+		"lb": ["säin", "seng", "sengem", "senger", "sengen"],
+		"als": ["sae", "saene", "sy", "sis", "síns", "síni", "síne", "si", "sini", "sins", "sine", "syn", "sym", "syni", "syner", "synere", "sys", "syne", "siner", "sinere"],
+		"bar": ["sei", "seim", "sein", "seina", "seine", "seins", "seis", "sẽĩ"]
+	},
+	"PL": {
+		"nds": ["ehr", "ehre", "ehren", "öhr", "öhre", "öhren", "jemehr", "jemehre", "jemehren"],
+		"ksh": ["eere", "eerem", "ehrem", "eer", "ehrer", "ehre"],
+		"lb": ["hiren", "hiert", "hir", "hirem", "hirer"],
+		"als": ["ir", "ire", "ihr", "ihrs", "ihri", "ihre"],
+		"bar": ["eana", "eănă", "iă", "ia", "eahna", "eàhna", "iàrà", "iara", "eàhnàn", "eahnan", "eanan", "eàhnàm", "eahnam", "eanam", "iàràn", "iaran", "iàràm", "iaram", "eàhnàrà", "eahnara", "eanara", "eàhnànà", "eahnana", "eanana", "eàhnàre", "eahnare", "eanare", "eàhnàne", "eahnane", "eanane", "iàre", "iare", "iàràne", "iarane"]
+	},
+	"_sources": {
+		"nds": ["https://nds.wikipedia.org/wiki/Plattd%C3%BC%C3%BCtsche_Grammatik#Besittanwiesen_F%C3%B6rw%C3%B6%C3%B6r"],
+		"lb": ["https://de.wikipedia.org/wiki/Luxemburgische_Sprache#Substantive_und_Pronomina"],
+		"ksh": ["https://en.wikipedia.org/wiki/Colognian_pronouns"],
+		"als": ["T. Streck (2015): Alemannisch in Deutschland",
+			"C. Russ (1990): High Alemannic",
+			"https://de.wikipedia.org/wiki/Schw%C3%A4bische_Grammatik#Personal-_und_Possessivpronomina",
+			"https://als.wikipedia.org/wiki/Pronomen#Possessivpronome"],
+		"bar": ["L. Merkle (1993): Bairische Grammatik, pp. 138-139",
+			"https://bar.wikipedia.org/wiki/Boarische_Grammatik_(Pronomen)#Possessivpronomen",
+			"https://de.wikipedia.org/wiki/Bairisch#Possessivpronomina"]
+	},
+	"_comment": "Only 3rd person (possessor) for now, but various cases and grammatical genders of the possessee."
+}
