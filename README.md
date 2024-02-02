@@ -25,4 +25,15 @@ To test the perturbation, you'll require dictionaries and word lists from the ``
 
 ## Cite us 
 
-TBA
+
+```
+@inproceedings{artemova-etal-2024-exploring,
+  author    = {Artemova, Ekaterina and Blaschke, Verena and Plank, Barbara},
+  title     = {Exploring the Robustness of Task-oriented Dialogue Systems for Colloquial German Varieties},
+  booktitle = {Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics},
+  year      = {2024},
+  publisher = {Association for Computational Linguistics},
+  note      = {To appear},
+}
+
+```
