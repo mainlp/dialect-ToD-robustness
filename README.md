@@ -18,7 +18,7 @@ To test the perturbation, you'll require dictionaries and word lists from the ``
 - [SpaCy](https://spacy.io/) for POS tagging
 - [Stanza](https://stanfordnlp.github.io/stanza/) for POS tagging and dependency parsing
 - [DERBI](https://github.com/EducationalTestingService/DERBI) for inflection
-- [Pattern-de](https://www.clips.uantwerpen.be/pages/pattern-de) for verb conjugation
+- [Pattern-de](https://github.com/clips/pattern/) for verb conjugation
 
 
 
