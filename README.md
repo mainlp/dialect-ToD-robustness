@@ -34,7 +34,7 @@ The table in the ```human_eval``` folder contains results of the **human evaluat
 
 ## Results 
 
-The folder 'plots' contains plots used in the main part of the paper and Appendices C and D.
+The folder `plots` contains plots used in the main part of the paper and Appendices C and D. Each plot is named according to the following pattern `{train language}{dev language}.{test language}.{dataset}`. The suffix '1p' stands for cases where single perturbations are applied. In other cases, all perturbations are applied simultaneously by default.
 
 
 ## Cite us 
