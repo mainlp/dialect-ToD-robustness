@@ -21,6 +21,15 @@ To test the perturbation, you'll require dictionaries and word lists from the ``
 - [Pattern-de](https://github.com/clips/pattern/) for verb conjugation
 
 
+## Human evaluation
+
+The table in the ```human_eval``` folder contains results of the **human evaluation of perturbations on the Likert scale from 1 to 5**. Each row corresponds to a pair of sentences where one sentence is a perturbation of the other. The columns are as follows:
+
+- `sentence`: the intact sentence 
+- `perturbed_sentence`: the perturbed sentence 
+- `perturbation`: the perturbation applied 
+- `ann_x`: the score from the annotator `x`
+- `ann_y`: the score from the annotator `y`.
 
 
 ## Cite us 
