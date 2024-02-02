@@ -17,7 +17,7 @@ To test the perturbation, you'll require dictionaries and word lists from the ``
 - [SoMaJo](https://pypi.org/project/somajo/) for tokenization
 - [SpaCy](https://spacy.io/) for POS tagging
 - [Stanza](https://stanfordnlp.github.io/stanza/) for POS tagging and dependency parsing
-- [DERBI](https://github.com/EducationalTestingService/DERBI) for inflection
+- [DERBI](https://github.com/maxschmaltz/DERBI) for inflection
 - [Pattern-de](https://github.com/clips/pattern/) for verb conjugation
 
 
