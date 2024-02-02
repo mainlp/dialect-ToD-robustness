@@ -14,11 +14,13 @@ We implemented 18 perturbations covering a wide range of dialect phenomena in Ge
 
 To test the perturbation, you'll require dictionaries and word lists from the ```resources``` folder, and the following packages:
 
-* SoMaJo for tokenization
-* SpaCy for POS tagging
-* Stanza for POS tagging and dependency parsing
-* DERBI for inflection
-* Pattern-de for verb conjugation
+- [SoMaJo](https://pypi.org/project/somajo/) for tokenization
+- [SpaCy](https://spacy.io/) for POS tagging
+- [Stanza](https://stanfordnlp.github.io/stanza/) for POS tagging and dependency parsing
+- [DERBI](https://github.com/EducationalTestingService/DERBI) for inflection
+- [Pattern-de](https://www.clips.uantwerpen.be/pages/pattern-de) for verb conjugation
+
+
 
 
 # Cite us 
