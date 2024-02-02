@@ -6,3 +6,8 @@ It contains code for automatically applying morphosyntactic perturbation rules t
 ## Usage conditions
 
 We release this code for research purposes only, and expressly forbid usage for mockery or parody of any dialects or registers.
+
+
+## Dialect perturbations
+
+We implemented 18 perturbations covering a wide range of dialect phenomena in German. The code is available in the ```dialect_perturbations.py``` file and the example usage is demontrated in the ```perturbation_test.ipynb``` notebook. 
