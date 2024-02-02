@@ -11,3 +11,16 @@ We release this code for research purposes only, and expressly forbid usage for 
 ## Dialect perturbations
 
 We implemented 18 perturbations covering a wide range of dialect phenomena in German. The code is available in the ```dialect_perturbations.py``` file and the example usage is demontrated in the ```perturbation_test.ipynb``` notebook. 
+
+To test the perturbation, you'll require dictionaries and word lists from the ```resources``` folder, and the following packages:
+
+* SoMaJo for tokenization
+* SpaCy for POS tagging
+* Stanza for POS tagging and dependency parsing
+* DERBI for inflection
+* Pattern-de for verb conjugation
+
+
+# Cite us 
+
+TBA
