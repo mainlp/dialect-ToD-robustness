@@ -34,8 +34,11 @@ The table in the ```human_eval``` folder contains results of the **human evaluat
 
 ## Results 
 
-The folder `plots` contains plots used in the main part of the paper and Appendices C and D. Each plot is named according to the following pattern `{train language}{dev language}.{test language}.{dataset}`. The suffix '1p' stands for cases where single perturbations are applied. In other cases, all perturbations are applied simultaneously by default.
+The folder `plots` contains plots used in the main part of the paper and Appendices C and D. Each plot is named according to the following pattern `{train language}{dev language}.{test language}.{dataset}`. 
 
+The folder `results` contains resulting tables. Each table contains intent accuracy and slot F1 values for intact and perturbed test sets. 
+
+We use the following convention to name files. Each file is named according to the pattern '{train language}{dev language}.{test language}.{dataset}'. The suffix '1p' denotes cases where single perturbations are applied. In other cases, all perturbations are applied simultaneously by default.
 
 ## Cite us 
 
