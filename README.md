@@ -32,6 +32,11 @@ The table in the ```human_eval``` folder contains results of the **human evaluat
 - `ann_y`: the score from the annotator `y`.
 
 
+## Results 
+
+The folder `plots` contains plots used in the main part of the paper and Apendices C and D. 
+
+
 ## Cite us 
 
 
