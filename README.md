@@ -34,7 +34,7 @@ The table in the ```human_eval``` folder contains results of the **human evaluat
 
 ## Results 
 
-The folder `plots` contains plots used in the main part of the paper and Apendices C and D. 
+The folder 'plots' contains plots used in the main part of the paper and Appendices C and D.
 
 
 ## Cite us 
