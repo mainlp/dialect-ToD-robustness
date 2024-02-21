@@ -21,12 +21,35 @@ To test the perturbation, you'll require dictionaries and word lists from the ``
 - [Pattern-de](https://github.com/clips/pattern/) for verb conjugation
 
 ### Installation
+Clone the repo + submodule:
 ```
+git clone --recursive git@github.com:mainlp/dialect-ToD-robustness.git
+```
+If you already cloned the repo without the recursive flag:
+```
+cd dialect-ToD-robustness
+git submodule init
+git submodule update
+```
+
+Install dependencies:
+```
+python -m pip install -r requirements.txt
+```
+or:
+```
+# pip install jupyter  # optional; only for sample notebook
+pip install GitPython
+pip install pandas
 pip install somajo
 pip install stanza
 pip install spacy
-python -m spacy download de_core_news_sm
 pip install pattern
+```
+
+Install the SpaCy model:
+```
+python -m spacy download de_core_news_sm
 ```
 
 ## Human evaluation
