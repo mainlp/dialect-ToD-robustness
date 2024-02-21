@@ -1,4 +1,5 @@
 import os
+import os.path
 import pandas as pd
 import numpy as np
 import json
@@ -13,12 +14,16 @@ import random
 
 from pattern.de import conjugate
 from pattern.de import INFINITIVE, PRESENT, SG, SUBJUNCTIVE, PAST, PARTICIPLE
+import pattern.text
+from pattern.helpers import decode_string
+from codecs import BOM_UTF8
 
 from DERBI.derbi import DERBI
 
 import stanza
 
-stanza_nlp = stanza.Pipeline(lang='de', processors='tokenize,pos', use_gpu=False)
+stanza_nlp = stanza.Pipeline(lang='de', processors='tokenize,pos',
+                             use_gpu=False)
 
 resources_path = 'resources'
 
@@ -26,29 +31,30 @@ tokenizer = SoMaJo("de_CMC", split_camel_case=True)
 nlp = spacy.load('de_core_news_sm')
 derbi = DERBI(nlp)
 
-prepositions_with_genitive = [line.strip() for line in open(f'{resources_path}/prepositions_with_genitive.txt').readlines()]
+prepositions_with_genitive = [
+    line.strip() for line in
+    open(f'{resources_path}/prepositions_with_genitive.txt').readlines()]
 articles_dict = json.load(open(f'{resources_path}/definite_article.json'))
 prepositions_dict = json.load(open(f'{resources_path}/prepositions.json'))
-person_tags = ['B-'+line.strip() for line in open(f'{resources_path}/person_tags.txt').readlines()]
-question_words = [line.strip() for line in open(f'{resources_path}/question_words.txt').readlines()]
-auxiliary_verbs = [line.strip() for line in open(f'{resources_path}/auxiliary_verbs.txt').readlines()]
-dawords = [line.strip() for line in open(f'{resources_path}/dawords.txt').readlines()]
-modal_verbs = [line.strip() for line in open(f'{resources_path}/modal_verbs.txt').readlines()]
-female_names = [line.strip().lower() for line in open(f'{resources_path}/Names_female_Duden_2007.csv').readlines()]
-male_names = [line.strip().lower() for line in open(f'{resources_path}/Names_male_Duden_2007.csv').readlines()]
-
+person_tags = ['B-' + line.strip() for line in open(
+    f'{resources_path}/person_tags.txt').readlines()]
+question_words = [line.strip() for line in open(
+    f'{resources_path}/question_words.txt').readlines()]
+auxiliary_verbs = [line.strip() for line in open(
+    f'{resources_path}/auxiliary_verbs.txt').readlines()]
+dawords = [line.strip() for line in open(
+    f'{resources_path}/dawords.txt').readlines()]
+modal_verbs = [line.strip() for line in open(
+    f'{resources_path}/modal_verbs.txt').readlines()]
+# Name lists via https://osf.io/jepzp/
+female_names = [line.strip().lower() for line in open(
+    f'{resources_path}/Names_female_Duden_2007.csv').readlines()]
+male_names = [line.strip().lower() for line in open(
+    f'{resources_path}/Names_male_Duden_2007.csv').readlines()]
 
 ###
 # Patch generator issue in pattern:
 # https://github.com/clips/pattern/issues/308#issuecomment-1308344763
-
-import os.path
-
-import pattern.text
-
-from pattern.helpers import decode_string
-from codecs import BOM_UTF8
-
 BOM_UTF8 = BOM_UTF8.decode("utf-8")
 decode_utf8 = decode_string
 
@@ -68,13 +74,15 @@ def _read(path, encoding="utf-8", comment=";;;"):
             # From file or buffer.
             f = path
         for i, line in enumerate(f):
-            line = line.strip(BOM_UTF8) if i == 0 and isinstance(line, str) else line
+            line = line.strip(BOM_UTF8) \
+                if i == 0 and isinstance(line, str) else line
             line = line.strip()
             line = decode_utf8(line, encoding)
             if not line or (comment and line.startswith(comment)):
                 continue
             yield line
-            
+
+
 pattern.text._read = _read
 ###
 
@@ -87,7 +95,7 @@ def is_ne(sentence, current_span):
     else:
         return True
 
-    
+
 ###################### NOUN GROUPS ######################
 
 ###################### von construction instead of genitive ######################
@@ -107,7 +115,7 @@ def get_genitive_groups(sentence :str) -> List[str]:
     return genitive_groups
 
 
-def genitive_group_to_dativ_group(genitive_group: str) -> str:
+def genitive_group_to_dative_group(genitive_group: str) -> str:
     '''
         change a genitive group into a dative group
     '''
@@ -116,30 +124,31 @@ def genitive_group_to_dativ_group(genitive_group: str) -> str:
     idx = [i for i in range(len(info))]
     result = []
     for token in info:
-    
-        token['Case']='Dat'
+        token['Case'] = 'Dat'
         inflected_info.append(token)
 
-    dativ_group = derbi(genitive_group, inflected_info, idx)
-    for token1, token2 in zip(genitive_group.split(), dativ_group.split()):
+    dative_group = derbi(genitive_group, inflected_info, idx)
+    for token1, token2 in zip(genitive_group.split(), dative_group.split()):
         if token1[0].isupper():
             result.append(token2[0].upper() + token2[1:])
         else:
             result.append(token2)
     
-    dativ_tokens = dativ_group.split()
-    if dativ_tokens[0] == 'dem':
-        dativ_group = ['vom'] + result[1:]
+    dative_tokens = dative_group.split()
+    if dative_tokens[0] == 'dem':
+        dative_group = ['vom'] + result[1:]
     else:
-        dativ_group = ['von'] + result
+        dative_group = ['von'] + result
     
-    dativ_group = " ".join(dativ_group)
-    return dativ_group
+    dative_group = " ".join(dative_group)
+    return dative_group
 
 
-def perturb_genitive_to_dativ(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
+def perturb_genitive_to_dative(
+        tokens: List[str],
+        tags: List[str]) -> Tuple[List[str], List[str], bool]:
     '''
-        perturb sentence by changing genitive to dativ
+        perturb sentence by changing genitive to dative
     '''
     replaced = False 
     
@@ -158,8 +167,8 @@ def perturb_genitive_to_dativ(tokens: List[str], tags: List[str]) -> Tuple[List[
     
     for genitive_group in genitive_groups:
         try:
-            dativ_group = genitive_group_to_dativ_group(genitive_group)
-            perturbed_sentence = sentence.replace(genitive_group, dativ_group)
+            dative_group = genitive_group_to_dative_group(genitive_group)
+            perturbed_sentence = sentence.replace(genitive_group, dative_group)
             perturbed_tokens = perturbed_sentence.split()
         except:
             pass
@@ -194,7 +203,7 @@ def capitalize_sentence(sentence):
 
 
 
-def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
+def perturb_possessive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List[str], List[str], bool]:
     sentence = ' '.join(tokens)
     capitalized_sentence = capitalize_sentence(sentence)
     perturbed_tokens = tokens.copy()
@@ -217,9 +226,9 @@ def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List
         
         try:
             token = parse[ne_gen_idx].text
-            dativ_word = derbi(token,{'Case': 'Dat'}, [0])  
+            dative_word = derbi(token,{'Case': 'Dat'}, [0])  
             if token[:-1].lower() in female_names or token[:-1].lower() in male_names: 
-                dativ_word = token[:-1]
+                dative_word = token[:-1]
             morph = parse[ne_gen_idx+1].morph.to_dict()
 
 
@@ -252,9 +261,9 @@ def perturb_possesive_genitive(tokens: List[str], tags: List[str]) -> Tuple[List
 
 
             if tokens[ne_gen_idx].istitle():
-                perturbed_tokens[ne_gen_idx] = dativ_word.capitalize()
+                perturbed_tokens[ne_gen_idx] = dative_word.capitalize()
             else:
-                perturbed_tokens[ne_gen_idx] = dativ_word
+                perturbed_tokens[ne_gen_idx] = dative_word
             perturbed_tokens.insert(ne_gen_idx+1, poss_word)
             perturbed_tags.insert(ne_gen_idx+1, 'O')
             replaced = True
