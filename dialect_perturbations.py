@@ -5,6 +5,7 @@ import json
 from typing import Dict, List, Tuple
 
 import spacy
+from spacy.lang import de  # for derbi
 from spacy.matcher import Matcher
 from spacy.attrs import *
 from somajo import SoMaJo

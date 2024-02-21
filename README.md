@@ -20,6 +20,14 @@ To test the perturbation, you'll require dictionaries and word lists from the ``
 - [DERBI](https://github.com/maxschmaltz/DERBI) for inflection
 - [Pattern-de](https://github.com/clips/pattern/) for verb conjugation
 
+### Installation
+```
+pip install somajo
+pip install stanza
+pip install spacy
+python -m spacy download de_core_news_sm
+pip install pattern
+```
 
 ## Human evaluation
 
@@ -52,5 +60,4 @@ We use the following convention to name files. Each file is named according to t
   publisher = {Association for Computational Linguistics},
   note      = {To appear},
 }
-
 ```

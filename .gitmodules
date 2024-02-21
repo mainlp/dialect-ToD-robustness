@@ -1,0 +1,6 @@
+[submodule "DERBI"]
+	path = DERBI
+	url = https://github.com/mainlp/DERBI
+[submodule "CharSplit"]
+	path = CharSplit
+	url = https://github.com/dtuggener/CharSplit
