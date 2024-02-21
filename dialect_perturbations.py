@@ -123,7 +123,18 @@ def genitive_group_to_dative_group(genitive_group: str) -> str:
     inflected_info = []
     idx = [i for i in range(len(info))]
     result = []
+    # Change to dative except for adjectives that follow an article
+    # or possessive pronoun
+    article_or_poss_pron = False
     for token in info:
+        if not article_or_poss_pron:
+            try:
+                if token['PronType'] == "Art" or token['PronType'] == "Prs":
+                    article_or_poss_pron = True
+            except KeyError:
+                pass
+        if article_or_poss_pron and "Degree" in token:
+            token['Declination'] = 'Weak'
         token['Case'] = 'Dat'
         inflected_info.append(token)
 

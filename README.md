@@ -71,6 +71,10 @@ The folder `results` contains resulting tables. Each table contains intent accur
 
 We use the following convention to name files. Each file is named according to the pattern '{train language}{dev language}.{test language}.{dataset}'. The suffix '1p' denotes cases where single perturbations are applied. In other cases, all perturbations are applied simultaneously by default.
 
+### Replication
+
+To replicate the perturbation rules exactly as used in the paper (without potential later improvements), use [this commit](https://github.com/mainlp/dialect-ToD-robustness/tree/094e0ce38c3658f975d40dc22e5c3f0a008d65a8).
+
 ## Cite us 
 
 
