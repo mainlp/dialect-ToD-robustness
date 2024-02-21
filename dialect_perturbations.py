@@ -20,7 +20,6 @@ import stanza
 
 stanza_nlp = stanza.Pipeline(lang='de', processors='tokenize,pos', use_gpu=False)
 
-
 resources_path = 'resources'
 
 tokenizer = SoMaJo("de_CMC", split_camel_case=True)
@@ -37,6 +36,47 @@ dawords = [line.strip() for line in open(f'{resources_path}/dawords.txt').readli
 modal_verbs = [line.strip() for line in open(f'{resources_path}/modal_verbs.txt').readlines()]
 female_names = [line.strip().lower() for line in open(f'{resources_path}/Names_female_Duden_2007.csv').readlines()]
 male_names = [line.strip().lower() for line in open(f'{resources_path}/Names_male_Duden_2007.csv').readlines()]
+
+
+###
+# Patch generator issue in pattern:
+# https://github.com/clips/pattern/issues/308#issuecomment-1308344763
+
+import os.path
+
+import pattern.text
+
+from pattern.helpers import decode_string
+from codecs import BOM_UTF8
+
+BOM_UTF8 = BOM_UTF8.decode("utf-8")
+decode_utf8 = decode_string
+
+
+def _read(path, encoding="utf-8", comment=";;;"):
+    """Returns an iterator over the lines in the file at the given path,
+    strippping comments and decoding each line to Unicode.
+    """
+    if path:
+        if isinstance(path, str) and os.path.exists(path):
+            # From file path.
+            f = open(path, "r", encoding="utf-8")
+        elif isinstance(path, str):
+            # From string.
+            f = path.splitlines()
+        else:
+            # From file or buffer.
+            f = path
+        for i, line in enumerate(f):
+            line = line.strip(BOM_UTF8) if i == 0 and isinstance(line, str) else line
+            line = line.strip()
+            line = decode_utf8(line, encoding)
+            if not line or (comment and line.startswith(comment)):
+                continue
+            yield line
+            
+pattern.text._read = _read
+###
 
 
 def is_ne(sentence, current_span):
